@@ -11,14 +11,21 @@ class App extends Component {
   
 
 
+
+
+
        addHero(index) {
-        if(this.state.heros[index] > 10){
-          alert('stop');
+        if(this.state.heros.length == 10){
+           alert('stop');
         }else{
           alert('add')
-        }
+        };
+        if (this.state.heros.includes(this.setState.heros)){
+          alert({heros} + 'already exist')
+        }else{       
       this.setState({heros :[...this.state.heros, ''] }
       )
+        }
     }
 
        handleChange(e, index) {
@@ -48,9 +55,8 @@ class App extends Component {
        this.state.heros.map((hero, index)=>{
          return(
 
-           <div key={index}>
-             <form
-             >
+           <div className="flex justify-between" key={index}>
+             <form>
              <input
              placeholder="enter your hero"
              className=" bg-white rounded-lg py-2 px-4 border-2 border-rose-600 ring-2 ring-slate-600"
