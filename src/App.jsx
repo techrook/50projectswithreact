@@ -1,93 +1,205 @@
-import React,{ Component} from "react";
+import React from 'react';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
 import "./App.css";
-
-class App extends Component {
-
-  state ={
-
-    heros:[],
-    
-  };
-  
-
-
-
-
-
-       addHero(index) {
-        if(this.state.heros.length == 10){
-           alert('stop');
-        }else{
-          alert('add')
-        };
-        if (this.state.heros.includes(this.setState.heros)){
-          alert({heros} + 'already exist')
-        }else{       
-      this.setState({heros :[...this.state.heros, ''] }
-      )
-        }
-    }
-
-       handleChange(e, index) {
-      this.state.heros[index] = e.target.value
-
-      this.setState({heros: this.state.heros})
-
-    }
-
-    handleRemove(index){
-      this.state.heros.splice(index,1)
-
-      console.log(this.state.heros, '6666')
-
-        this.setState({heros: this.state.heros})
-    }
-
-  render(){
+import img1 from '../image/dave.jpg';
+import img2 from '../image/A.jpg';
+import img3 from '../image/babe.jpg';
+import img4 from '../image/client.jpg';
+import img5 from '../image/finegal.jpg';
+import img6 from '../image/lulu.jpg';
+import img7 from '../image/monday.jpg';
+import img8 from '../image/Ndi2.jpg';
+import img9 from '../image/nusra.jpg';
+import img10 from '../image/sis.jpg';
+import { MdOutlineStar } from "react-icons/md";
+function App() {
   return (
-    <div className="flex justify-center flex-col bg-gray-800 ">
-      <h1 className="text-center pt-3 text-2xl border-2 border-lime-100 h-16 flex justify-center bg-slate-600 ">list your top  Superhero </h1>
-      <div className="p-8 flex justify-center flex-col text-center   ">
-
-     <label className="font-bold">who are your top 10 Superheros</label>
-
-     {
-       this.state.heros.map((hero, index)=>{
-         return(
-
-           <div className="flex justify-between" key={index}>
-             <form>
-             <input
-             placeholder="enter your hero"
-             className=" bg-white rounded-lg py-2 px-4 border-2 border-rose-600 ring-2 ring-slate-600"
-             onChange={(e) => this.handleChange(e, index)}
-              value={hero}
-              required
-              />
-
-              <button onClick={(e) => this.handleRemove(e)}>Remove</button>
+    <div className='bg-black w-3/5 h-1/2 mt-3 m-auto flex justify-center flex-col text-gray-500'>
+      <h1 className='text-center text-2xl font-mono'>My Testimonials</h1>
+      <Carousel
+        className='w-8/12 h-1/2 ml-auto mr-auto pl-1.5 pr-1.5 pt-2 pb-2 border-solid border-2 border-orange-600 '
+        showArrows={true}
+        infiniteLoop={true}
+        showThumbs={false}
+        autoPlay={true}
+        interval={3000}
+      
+      >
+        <div>
+          <img className='w-32 rounded-full' src={img1}/>
+          <div className='pt-16'>
+            <h3 className='font-mono font-bold text-xl'>David Dike</h3>
+            <h4 className='font-mono font-bold text-xl'>developer</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
+               quod ab cumque officia quisquam ut, minima consequatur omnis? Ad, 
+              omnis itaque. Fugiat aperiam qui at doloremque quasi, maiores assumenda fuga.</p>
+              <div className='text-center flex flex-row justify-center text-xl'>
+                <MdOutlineStar />
+                <MdOutlineStar />
+                <MdOutlineStar />
+                <MdOutlineStar />
+                <MdOutlineStar />
+              </div>
               
-              </form>
-             </div>
-         )
-       })
-     }
-    <button
-    className="ring-2 ring-slate-600"
-    onClick={(e) =>
-    this.addHero(e)
-    }>
-        add hero
-      </button>
-     </div>
-     
-     
-
-
+          </div>
+        </div>
+        <div>
+          <img className='w-32 rounded-full' src={img2}/>
+          <div className='pt-16'>
+            <h3 className='font-mono font-bold text-xl'>Amaka Elodi</h3>
+            <h4 className='font-mono font-bold text-xl'>Stylist</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
+               quod ab cumque officia quisquam ut, minima consequatur omnis? Ad, 
+              omnis itaque. Fugiat aperiam qui at doloremque quasi, maiores assumenda fuga.</p>
+              <div className='text-center flex flex-row justify-center text-xl'>
+                <MdOutlineStar />
+                <MdOutlineStar />
+                <MdOutlineStar />
+                <MdOutlineStar />
+                <MdOutlineStar />
+              </div>
+          </div>
+        </div>
+        <div>
+          <img className='w-32 rounded-full' src={img3}/>
+          <div className='pt-16'>
+            <h3 className='font-mono font-bold text-xl'>oluchi abonyi</h3>
+            <h4 className='font-mono font-bold text-xl'>Model</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
+               quod ab cumque officia quisquam ut, minima consequatur omnis? Ad, 
+              omnis itaque. Fugiat aperiam qui at doloremque quasi, maiores assumenda fuga.</p>
+              <div className='text-center flex flex-row justify-center text-xl'>
+                <MdOutlineStar />
+                <MdOutlineStar />
+                <MdOutlineStar />
+                <MdOutlineStar />
+                <MdOutlineStar />
+              </div>
+          </div>
+        </div>
+        <div>
+          <img className='w-32 rounded-full' src={img4}/>
+          <div className='pt-16'>
+            <h3 className='font-mono font-bold text-xl'>sara mill</h3>
+            <h4 className='font-mono font-bold text-xl'>dancer</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
+               quod ab cumque officia quisquam ut, minima consequatur omnis? Ad, 
+              omnis itaque. Fugiat aperiam qui at doloremque quasi, maiores assumenda fuga.</p>
+              <div className='text-center flex flex-row justify-center text-xl'>
+                <MdOutlineStar />
+                <MdOutlineStar />
+                <MdOutlineStar />
+                <MdOutlineStar />
+                <MdOutlineStar />
+              </div>
+          </div>
+        </div>
+        <div>
+          <img className='w-32 rounded-full' src={img5}/>
+          <div className='pt-16'>
+            <h3 className='font-mono font-bold text-xl'>sandra amber</h3>
+            <h4 className='font-mono font-bold text-xl'>Actress</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
+               quod ab cumque officia quisquam ut, minima consequatur omnis? Ad, 
+              omnis itaque. Fugiat aperiam qui at doloremque quasi, maiores assumenda fuga.</p>
+              <div className='text-center flex flex-row justify-center text-xl'>
+                <MdOutlineStar />
+                <MdOutlineStar />
+                <MdOutlineStar />
+                <MdOutlineStar />
+                <MdOutlineStar />
+              </div>
+          </div>
+        </div>
+        <div>
+          <img className='w-32 rounded-full' src={img6}/>
+          <div className='pt-16'>
+            <h3 className='font-mono font-bold text-xl'>oluchi monday</h3>
+            <h4 className='font-mono font-bold text-xl'> Entrepreneur </h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
+               quod ab cumque officia quisquam ut, minima consequatur omnis? Ad, 
+              omnis itaque. Fugiat aperiam qui at doloremque quasi, maiores assumenda fuga.</p>
+              <div className='text-center flex flex-row justify-center text-xl'>
+                <MdOutlineStar />
+                <MdOutlineStar />
+                <MdOutlineStar />
+                <MdOutlineStar />
+                <MdOutlineStar />
+              </div>
+          </div>
+        </div>
+        <div>
+          <img className='w-32 rounded-full' src={img7}/>
+          <div className='pt-16'>
+            <h3 className='font-mono font-bold text-xl'>Itohowo Monday</h3>
+            <h4 className='font-mono font-bold text-xl'>Founder, CEO, developer</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
+               quod ab cumque officia quisquam ut, minima consequatur omnis? Ad, 
+              omnis itaque. Fugiat aperiam qui at doloremque quasi, maiores assumenda fuga.</p>
+              <div className='text-center flex flex-row justify-center text-xl'>
+                <MdOutlineStar />
+                <MdOutlineStar />
+                <MdOutlineStar />
+                <MdOutlineStar />
+                <MdOutlineStar />
+              </div>
+          </div>
+        </div>
+        <div>
+          <img className='w-32 rounded-full' src={img8}/>
+          <div className='pt-16'>
+            <h3 className='font-mono font-bold text-xl'>Ndifreke umoh</h3>
+            <h4 className='font-mono font-bold text-xl'>Game developer</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
+               quod ab cumque officia quisquam ut, minima consequatur omnis? Ad, 
+              omnis itaque. Fugiat aperiam qui at doloremque quasi, maiores assumenda fuga.</p>
+              <div className='text-center flex flex-row justify-center text-xl'>
+                <MdOutlineStar />
+                <MdOutlineStar />
+                <MdOutlineStar />
+                <MdOutlineStar />
+                <MdOutlineStar />
+              </div>
+          </div>
+        </div>
+        <div>
+          <img className='w-32 rounded-full' src={img9}/>
+          <div className='pt-16'>
+            <h3 className='font-mono font-bold text-xl'>mrs nusra</h3>
+            <h4 className='font-mono font-bold text-xl'>Model</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
+               quod ab cumque officia quisquam ut, minima consequatur omnis? Ad, 
+              omnis itaque. Fugiat aperiam qui at doloremque quasi, maiores assumenda fuga.</p>
+              <div className='text-center flex flex-row justify-center text-xl'>
+                <MdOutlineStar />
+                <MdOutlineStar />
+                <MdOutlineStar />
+                <MdOutlineStar />
+                <MdOutlineStar />
+              </div>
+          </div>
+        </div>
+        <div>
+          <img className='w-32 rounded-full' src={img10}/>
+          <div className='pt-16'>
+            <h3 className='font-mono font-bold text-xl'>Aniedi umoh</h3>
+            <h4 className='font-mono font-bold text-xl'>photograher</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
+               quod ab cumque officia quisquam ut, minima consequatur omnis? Ad, 
+              omnis itaque. Fugiat aperiam qui at doloremque quasi, maiores assumenda fuga.</p>
+              <div className='text-center flex flex-row justify-center text-xl'>
+                <MdOutlineStar />
+                <MdOutlineStar />
+                <MdOutlineStar />
+                <MdOutlineStar />
+                <MdOutlineStar />
+              </div>
+          </div>
+        </div>
+      </Carousel>
     </div>
-    
-  );
-}
+  )
 }
 
 export default App
