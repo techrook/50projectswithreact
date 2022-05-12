@@ -52,7 +52,7 @@ function App() {
     const getDeadTime = () =>{
       let deadline = new Date();
  
-      deadline.setHours(deadline.getHours() + 1152);
+      deadline.setHours(deadline.getHours() + 1104);
 
       return deadline;
     }
