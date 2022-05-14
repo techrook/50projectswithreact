@@ -1,83 +1,96 @@
-import React, { useState, useRef, useEffect} from 'react'
+// @flow strict
 
-function App() {
+import React, { useState } from 'react';
 
-  const Ref = useRef(null);
 
-  const [timer, setTimer] = useState('00:00:00');
 
-  const getTimeRemaining = (e) =>{
-    const total = Date.parse(e) - Date.parse(new Date());
-    const seconds = Math.floor((total/1000)%60);
-    const minutes = Math.floor((total/1000/60)%60);
-    const hours = Math.floor((total/1000/60/60)%24);
-    const days = Math.floor((total/1000/60/60) / 24);
-    return{
-      total, days, hours, minutes, seconds
-    };
+
+
+function App()  {
+  const [firstname, setFirstname] = useState('');
+
+ const  handleChange = (e) => {
+   setFirstname (e.target.value);
+
+   if(setFirstname < 3){
+     alert("below three characters add more characters to name ")
+   }else{
+     return;
+   }
   }
 
-  const startTimer = (e) =>{
-    let { total, days, hours, minutes, seconds}
-          =getTimeRemaining(e);
-
-    if (total >= 0){
-
-      setTimer(
-              (days > 9 ? days :'0'+days ) + ':'+
-              (hours > 9 ? hours :'0'+hours ) + ':' +
-             (minutes > 9 ? minutes :'0'+minutes ) + ':'
-             +(seconds > 9 ? seconds : '0' +seconds)
-
-      )
-
-    }
-  }
-
-
-
-
-    const clearTimer = (e) => {
-      setTimer('00:00:00:00');
-
-      if(Ref.current) clearInterval(Ref.current);
-      const id = setInterval(() =>{
-        startTimer(e);
-      }, 1000)
-
-      Ref.current = id;
-    }
-
-
-    const getDeadTime = () =>{
-      let deadline = new Date();
  
-      deadline.setHours(deadline.getHours() + 1104);
+    return (
+      <div>
+        <div className="grid h-full place-content-center place-items-center gap-4">
+      {/* circles */}
+      <div className="absolute top-10 right-0">
+        <div className="relative">
+          <div className="h-10 w-10 rounded-full bg-blue-700"></div>
+          <div className="h-20 w-20 rounded-full bg-blue-700"></div>
+        </div>
+      </div>
+      {/* circles */}
 
-      return deadline;
-    }
+      <div className="flex flex-col gap-1">
+        <label htmlFor="" className="text-xl font-bold">
+          Hi
+        </label>
+        <label htmlFor="" className="text-2xl font-bold">
+          Sign In Now
+        </label>
+      </div>
+      <form className="grid gap-2">
+      <div className="h-fit w-full">
+          <input
+            type="Firstname"
+            className="rounded-lg py-2 px-4"
+            placeholder="Firstname"
+            value={firstname}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="h-fit w-full">
+          <input
+            type="Lastname"
+            className="rounded-lg py-2 px-4"
+            placeholder="Lastname"
+            
+          />
+        </div>
+        <div className="h-fit w-full">
+          <input
+            type="email"
+            className="rounded-lg py-2 px-4"
+            placeholder="email"
+          />
+        </div>
+
+        <div className="h-fit w-full">
+          <input
+            type="password"
+            className="rounded-lg py-2 px-4"
+            placeholder="password"
+          />
+        </div>
 
 
-    useEffect(() =>{
-      clearTimer(getDeadTime());
-    }, []);
 
+        <div className="flex items-center justify-center gap-2">
 
-    const onClickReset = () =>{
-      clearTimer(getDeadTime());
-    }
-
-
-
-  return (
-    <div>
-
-      <h1 className='text-center text-2xl'>50 days react countdown</h1>
-      <p className=' text-xl '>countdown started from day 47</p>
-      <h2 className='text-4xl text-center bg-gray-500 pt-10 my-40'>{timer}</h2>
-      <button onClick={onClickReset}>Reset</button>
+          <button className="rounded-2xl bg-red-600 py-2 px-6"
+          onClick={(e) => this.validation(e)}
+          >
+            <i className="icon google plus"></i>
+            <span>Submit</span>
+          </button>
+        </div>
+      </form>
     </div>
-  )
-}
+        
+      </div>
+    );
+  }
 
-export default App
+
+export default App;
