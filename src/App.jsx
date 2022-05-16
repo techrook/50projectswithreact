@@ -10,8 +10,10 @@ import {validEmail} from './Regex';
   const [firstname,setFirstname] = useState('');
   const [lastname,setLastname] = useState('');
   const [email, setEmail] = useState('')
-  const nameerrmsg = 'first and last name needs to be more than 3 characters'
+  const [nameerrmsg, setNamerrmsg] = useState('')
+  const [nameerrmsg1, setNamerrmsgl] = useState('')
   const successmsg = 'good'
+  const successmsg1 = 'good'
   const [emailErr, setEmailErr] = useState(false)
   const [password, setPassword] = useState('')
   const [confirmPassword, setFirmPassword] = useState('')
@@ -42,12 +44,22 @@ const handleFirmPWDChange = (e) =>{
 
 
 
-  const validate = () =>{
-    if(firstname.length <= 3){
-     console.log(nameerrmsg)
-      
+  const validateFirstname = () =>{
+    setNamerrmsg('')
+    if(firstname.length < 4){
+      setNamerrmsg ('First name must be greater than 3 characters')
     }else{
-      console.log(successmsg)
+      setNamerrmsg ('')
+    }
+
+    
+  }
+
+  const validateLastname = () =>{
+    if(lastname.length < 4){
+      setNamerrmsgl ("First name must be greater than 3 characters")
+    }else{
+      
     }
 
     
@@ -104,14 +116,10 @@ const handleFirmPWDChange = (e) =>{
             placeholder="Firstname"
             value={firstname}
             onChange={handleFirstChange}
-            onKeyUp={validate}
+            onKeyUp={validateFirstname}
           />
             <div>
-          {firstname.length < 3 ? (
-            <h1 className='text-red-600'>{nameerrmsg}</h1>
-          ) : (
-            <h1 className='text-green-600'>{successmsg}</h1>
-          )}
+          {nameerrmsg}
         </div>
          
         </div>
@@ -123,16 +131,13 @@ const handleFirmPWDChange = (e) =>{
             placeholder="Lastname"
             value={lastname}
             onChange={handleLastChange}
-            onKeyUp={validate}
+            onKeyUp={validateLastname}
+            
             
             
           />
            <div>
-          {lastname.length < 3 ? (
-            <h1 className='text-red-600'>{nameerrmsg}</h1>
-          ) : (
-            <h1 className='text-green-600'>{successmsg}</h1>
-          )}
+            
         </div>
         </div>
         <div className="h-fit w-full">
