@@ -1,26 +1,79 @@
 // @flow strict
 
 import React, { useState } from 'react';
+import {validEmail} from './Regex';
 
 
 
+ function App() {
 
+  const [firstname,setFirstname] = useState('');
+  const [lastname,setLastname] = useState('');
+  const [email, setEmail] = useState('')
+  const nameerrmsg = 'first and last name needs to be more than 3 characters'
+  const successmsg = 'good'
+  const [emailErr, setEmailErr] = useState(false)
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setFirmPassword] = useState('')
 
-function App()  {
-  const [firstname, setFirstname] = useState('');
-
- const  handleChange = (e) => {
-   setFirstname (e.target.value);
-
-   if(setFirstname < 3){
-     alert("below three characters add more characters to name ")
-   }else{
-     return;
-   }
+  
+    
+  const handleFirstChange = (e) =>{
+      setFirstname(e.target.value)
+    
   }
+  const handleLastChange = (e) =>{
+    setLastname(e.target.value)
+  
+}
+
+const handleEmailChange = (e) =>{
+  setEmail(e.target.value)
+}
+
+const handlePWDChange = (e) =>{
+  setPassword(e.target.value)
+}
+
+const handleFirmPWDChange = (e) =>{
+  setFirmPassword(e.target.value)
+}
+
+
+
+
+  const validate = () =>{
+    if(firstname.length <= 3){
+     console.log(nameerrmsg)
+      
+    }else{
+      console.log(successmsg)
+    }
+
+    
+  }
+
+  const validatePWD = () =>{
+    if(password === confirmPassword){
+      console.log('ok')
+    }else{
+      console.log('shit')
+    }
+  }
+
+  const handleSubmit = (e) =>{
+    e.preventDefault()
+    return <p>{lastname}</p>
+  }
+
+  
+
+
 
  
     return (
+      
+
       <div>
         <div className="grid h-full place-content-center place-items-center gap-4">
       {/* circles */}
@@ -40,30 +93,59 @@ function App()  {
           Sign In Now
         </label>
       </div>
-      <form className="grid gap-2">
+      <form 
+        
+      className="grid gap-2">
       <div className="h-fit w-full">
-          <input
-            type="Firstname"
+          <input 
+            name='firstname'
+            type="firstname"
             className="rounded-lg py-2 px-4"
             placeholder="Firstname"
             value={firstname}
-            onChange={handleChange}
+            onChange={handleFirstChange}
+            onKeyUp={validate}
           />
+            <div>
+          {firstname.length < 3 ? (
+            <h1 className='text-red-600'>{nameerrmsg}</h1>
+          ) : (
+            <h1 className='text-green-600'>{successmsg}</h1>
+          )}
+        </div>
+         
         </div>
         <div className="h-fit w-full">
           <input
-            type="Lastname"
+          name='lastname'
+            type="lastname"
             className="rounded-lg py-2 px-4"
             placeholder="Lastname"
+            value={lastname}
+            onChange={handleLastChange}
+            onKeyUp={validate}
+            
             
           />
+           <div>
+          {lastname.length < 3 ? (
+            <h1 className='text-red-600'>{nameerrmsg}</h1>
+          ) : (
+            <h1 className='text-green-600'>{successmsg}</h1>
+          )}
+        </div>
         </div>
         <div className="h-fit w-full">
           <input
             type="email"
             className="rounded-lg py-2 px-4"
             placeholder="email"
+            value={email}
+            onChange={handleEmailChange}
           />
+          <div>
+            {emailErr && <p>Your email is invalid</p>}
+          </div>
         </div>
 
         <div className="h-fit w-full">
@@ -71,7 +153,29 @@ function App()  {
             type="password"
             className="rounded-lg py-2 px-4"
             placeholder="password"
+            value={password}
+            onChange={handlePWDChange}
+          
           />
+        </div>
+
+        <div className="h-fit w-full">
+          <input
+            type="password"
+            className="rounded-lg py-2 px-4"
+            placeholder="Confirm password"
+            value={confirmPassword}
+            onChange={handleFirmPWDChange}
+            onKeyUp={validatePWD}
+          />
+          <div>
+            {password === confirmPassword ? (
+              <p className='text-green-600'>match</p>
+            ): (
+              <p className='text-red-600'>dont match</p>
+            )}
+
+          </div>
         </div>
 
 
@@ -79,18 +183,26 @@ function App()  {
         <div className="flex items-center justify-center gap-2">
 
           <button className="rounded-2xl bg-red-600 py-2 px-6"
-          onClick={(e) => this.validation(e)}
+          onClick={handleSubmit }
           >
+
             <i className="icon google plus"></i>
             <span>Submit</span>
           </button>
         </div>
       </form>
     </div>
-        
+    <div>
+            {handleSubmit && <p>{firstname} <br></br>
+            {lastname}<br></br> {email}</p>}
+    </div>
+
       </div>
+
+
     );
   }
+  
 
 
 export default App;
