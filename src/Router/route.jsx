@@ -1,17 +1,20 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "../components/Home";
-import AddNote from "../components/AddNote";
-import NoteDetail from "../components/NoteDetail";
+import Home from "../Home";
+import Signup from "../Signup";
+import Login from "../Login";
+import Dashbord from "../Dashbord";
+
 
 export default function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="addnote" element={<AddNote />} />
-        <Route path="notedetail" element={<NoteDetail />} />
+        <Route path="signup" element={<Signup />} />
+        <Route path="Login" element={<Login />} />
+        <Route path="dashboard" element={<Dashbord />} />
       </Routes>
     </BrowserRouter>
   );

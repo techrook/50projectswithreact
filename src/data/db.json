@@ -1,19 +1,18 @@
 {
-  "notes": [
+  "User": [
     {
-      "title": "My Note",
-      "description": "This is my new note",
+      "Username": "monday",
+      "Password": "7y7y7y7y",
+      "FirstName": "itohowo",
+      "LastName": "umoh",
       "id": 1
     },
     {
-      "title": "kendric lamr",
-      "description": "greatest artist at moment ",
+      "Username": "ndices",
+      "Password": "iloveyou",
+      "FirstName": "Ndifreke",
+      "LastName": "Umoh",
       "id": 2
-    },
-    {
-      "title": "kendric lamr",
-      "description": "greatest artist at moment ",
-      "id": 3
     }
   ]
 }
