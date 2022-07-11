@@ -9,11 +9,12 @@ function App() {
   const [weather,setWeather] = useState([])
   const APIKEY = '79cea5cf9a26e24d726c160cfd8b6f82'
 
-  async function fetchData(e) {
+  async function fetchData(e) { 
+
     const city = e.target.elements.city.value
     const country = e.target.elements.country.value
     e.preventDefault()
-  const apiData = await fetch(` https://api.openweathermap.org/data/2.5/weather?id=2172797&appid=${APIKEY}`)
+  const apiData = await fetch(` https://api.openweathermap.org/data/2.5/weather?q=kano,nigeria&appid={API key}`)
     .then( res => res.json())
     .then(data => data)
     setWeather({
@@ -48,4 +49,5 @@ function App() {
 }
 
 export default App
+
 
