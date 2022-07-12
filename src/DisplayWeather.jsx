@@ -6,7 +6,7 @@ function DisplayWeather(props) {
     
   return (
     <div className=''>
-        <span>
+        <span className=''>
             {data.name}, {data.sys.country} weather
         </span>
         <span>

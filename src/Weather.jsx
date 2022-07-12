@@ -1,5 +1,6 @@
 import React, {  useState } from "react";
 import DisplayWeather from "./DisplayWeather";
+import "./App.css"
 
 function Weather() {
 
@@ -46,14 +47,14 @@ function Weather() {
 
   return (
     <div>
-        <h3>WEATHER APP</h3>
+        <h3 className="text-2xl p-6 ">WEATHER APP</h3>
 
         <div>
-        <form>
-            <input type="text" name='city' placeholder='city' onChange={e => handleChange(e)} />
-            <input type="text" name='country' placeholder='country' onChange={e => handleChange(e)} />
+        <form   className=" grid grid-rows-2 ">
+            <input className="w-2/4 p-1 ml-12 my-2 text-center" type="text" name='city' placeholder='city' onChange={e => handleChange(e)} />
+            <input className="w-1/2 ml-12 p-1 my-2 text-center" type="text" name='country' placeholder='country' onChange={e => handleChange(e)} />
 
-            <button onClick={e => weatherData(e)}>submit</button>
+            <button className="rounded-full bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-200 border border-gray-200 w-24 text-center justify-self-center " onClick={e => weatherData(e)}>submit</button>
         </form>
         </div>
 
