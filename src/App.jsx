@@ -1,19 +1,19 @@
 import React, {  useState } from "react";
 import "./App.css"
-import Weather from "./Weather"
+import IpAddress from "./Components/IpAddress";
+import Card from "./ui/Card";
+import img from "./public/image/pattern-bg.png"
 
 
 
 function App() {
-
-
-
   return (
-    <div className='contenair bg-cover min-h-screen w-full flex justify-center items-center bg-orange-400'>
-          <div className='h-1/2 w-1/2 text-center  w-1/2 bg-white p-5 rounded-xl bg-opacity-60 backdrop-filter backdrop-blur-lg'>
-        <Weather />
-    </div>
-    </div>
+    <Card className="flex justify-center w-full bg-gradient-to-r from-pink-500 to-violet-500">
+       <img className="w-full h-1/2" src={img} alt="" /> 
+        {/* <LocationMap lat={IpAddressDist.lat} lon={IpAddressDist.lon}/> */}
+      <h1 className="capitalize font-bold text-lg md:text-xl text-gray-500 text-center">your ip address is :</h1>
+      <IpAddress/>
+    </Card>
   )
 }
 
